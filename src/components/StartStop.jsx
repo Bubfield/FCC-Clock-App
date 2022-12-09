@@ -14,6 +14,7 @@ const StartStop = ({ props }) => {
   } = props;
 
   const handleReset = () => {
+    const audio = document.getElementById("beep");
     setTimeLeft("25:00");
     setBreakLength(5);
     setSessionLength(25);
@@ -22,6 +23,10 @@ const StartStop = ({ props }) => {
     setDisplayBreak(false);
     setTimerLabel("Session");
     setTimerRunning(false);
+    if (!audio.paused) {
+      audio.pause();
+      audio.currentTime = 0;
+    }
     return;
   };
 

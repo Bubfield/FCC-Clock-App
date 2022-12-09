@@ -15,11 +15,7 @@ const App = () => {
   const [timerRunning, setTimerRunning] = useState(false);
 
   useEffect(() => {
-    const url =
-      "http://codeskulptor-demos.commondatastorage.googleapis.com/descent/background%20music.mp3";
-    const audio = new Audio(url);
-    const onPlay = () => audio.play();
-
+    const audio = document.getElementById("beep");
     let timerLabelElmnt = document.getElementById("timer-label");
     let timeLeftElmnt = document.getElementById("time-left");
     if (timeLeft.slice(0, 2) === "00") {
@@ -31,9 +27,11 @@ const App = () => {
     }
 
     if (timeLeft === "00:00") {
-      audio.addEventListener("canplaythrough", onPlay);
       clearInterval(intervalId);
       setIntervalId(0);
+      setTimeout(() => {
+        audio.play();
+      }, 1000);
       const timer = setTimeout(() => {
         if (timerLabel === "Session") {
           setTimerLabel("Break");
@@ -61,12 +59,6 @@ const App = () => {
         clearTimeout(timer);
       };
     }
-    return () => {
-      if (audio) {
-        //audio.pause(); // to enable garbage collection
-        audio.removeEventListener("canplaythrough", onPlay);
-      }
-    };
   }, [timeLeft, intervalId, breakLength, sessionLength, timerLabel]);
 
   const handleTime = (timer) => {
@@ -110,6 +102,11 @@ const App = () => {
 
   return (
     <div className="App">
+      <audio
+        preload="auto"
+        id="beep"
+        src="http://codeskulptor-demos.commondatastorage.googleapis.com/descent/background%20music.mp3"
+      ></audio>
       <Header text="25 + 5 Clock" />
       <Label
         props={{

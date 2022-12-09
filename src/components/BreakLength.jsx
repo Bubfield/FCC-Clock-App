@@ -11,6 +11,8 @@ const BreakLength = ({ props }) => {
   } = props;
 
   const handleDecrement = () => {
+    let newVar = breakLength - 1;
+
     if (timerRunning) {
       return;
     } else if (breakLength > 1) setBreakLength((prevLength) => prevLength - 1);
@@ -19,25 +21,12 @@ const BreakLength = ({ props }) => {
       if (timeLeft.slice(1, 2) <= 1 && timeLeft.slice(0, 1) === "0") {
         return;
       } else if (timeLeft.slice(1, 2) > 0 && timeLeft.slice(3) === "00") {
-        setTimeLeft(
-          (prevTime) =>
-            prevTime.slice(0, 1) +
-            (prevTime.slice(1, 2) - 1) +
-            prevTime.slice(2)
-        );
+        setTimeLeft(newVar >= 10 ? newVar + ":00" : "0" + newVar + ":00");
       } else if (timeLeft.slice(1, 2) === "0" && timeLeft.slice(3) === "00") {
-        setTimeLeft(
-          (prevTime) => prevTime.slice(0, 1) - 1 + "9" + prevTime.slice(2)
-        );
+        setTimeLeft(newVar < 10 ? "0" + newVar + ":00" : newVar + ":00");
       }
       if (timeLeft.slice(3) !== "00") {
-        setTimeLeft(
-          (prevTime) =>
-            prevTime.slice(0, 1) +
-            prevTime.slice(1, 2) +
-            prevTime.slice(2, 3) +
-            "00"
-        );
+        setTimeLeft(newVar >= 10 ? newVar + ":00" : "0" + newVar + ":00");
       }
     }
   };
