@@ -1,0 +1,135 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  background-color: rgb(61, 99, 100);
+  color: white;
+}
+
+.App {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header {
+  font-size: x-large;
+}
+
+.header h1 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.break-buttons-div {
+  display: flex;
+  flex-direction: row;
+  max-width: 130px;
+  margin: 0 auto;
+}
+
+.break-buttons-div button {
+  margin: 0 5px;
+  width: 3.5rem;
+}
+
+.session-buttons-div {
+  display: flex;
+  flex-direction: row;
+  max-width: 139px;
+  margin: 0 auto;
+}
+
+.session-buttons-div button {
+  margin: 0 5px;
+  width: 3.5rem;
+}
+
+.timer-div {
+  border: 6px solid rgb(10, 44, 44);
+  max-width: 250px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 1rem auto;
+  padding: 1rem 3rem;
+}
+
+.label-div {
+  margin: 0;
+  display: flex;
+}
+
+.start-stop-div {
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.start-stop-div button {
+  margin: 0 1rem;
+  font-size: 2rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.author {
+  width: 180px;
+  margin: 0 auto;
+}
+
+#break-label {
+  width: 250px;
+}
+
+#session-label {
+  width: 250px;
+}
+
+#time-left {
+  font-size: 5rem;
+  margin: 0;
+}
+
+#timer-label {
+  font-size: 2rem;
+  margin: 0;
+}
+
+footer a {
+  color: rgb(187, 122, 135);
+}
+
+footer a:hover {
+  color: rgb(243, 214, 214);
+}
+
+button {
+  background-color: brown;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(230, 176, 106);
+}
+
+#break-length,
+#session-length {
+  font-size: 2rem;
+}
+
+#break-decrement,
+#session-decrement,
+#break-increment,
+#session-increment {
+  font-size: 2rem;
+}
